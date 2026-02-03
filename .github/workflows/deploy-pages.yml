@@ -26,10 +26,8 @@ jobs:
         with:
           node-version: 20
           cache: npm
-
-      - run: npm ci --legacy-peer-deps
-      # Corrige bug do npm com optional deps do Rollup no Linux (https://github.com/npm/cli/issues/4828)
-      - run: npm install
+          
+      - run: rm -rf node_modules && npm install --legacy-peer-deps
 
       - run: npm run build
 
